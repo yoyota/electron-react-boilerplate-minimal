@@ -1,21 +1,11 @@
 /* eslint global-require: off */
 
-/**
- * This module executes inside of electron's main process. You can start
- * electron renderer process from here and communicate with the other processes
- * through IPC.
- *
- * When running `yarn build` or `yarn build-main`, this file is compiled to
- * `./app/main.prod.js` using webpack. This gives us some performance wins.
- *
- * @flow
- */
-import { app, BrowserWindow } from "electron"
-import { autoUpdater } from "electron-updater"
-import log from "electron-log"
-import MenuBuilder from "./menu"
+const { app, BrowserWindow } = require("electron")
+const { autoUpdater } = require("electron-updater")
+const log = require("electron-log")
+const MenuBuilder = require("./menu")
 
-export default class AppUpdater {
+class AppUpdater {
   constructor() {
     log.transports.file.level = "info"
     autoUpdater.logger = log
@@ -111,3 +101,5 @@ app.on("activate", () => {
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow()
 })
+
+module.exports = AppUpdater
