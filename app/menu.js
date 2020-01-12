@@ -1,6 +1,6 @@
-import { app, Menu, shell, BrowserWindow } from "electron"
+const { app, Menu, shell, BrowserWindow } = require("electron")
 
-export default class MenuBuilder {
+class MenuBuilder {
   constructor(mainWindow = BrowserWindow) {
     this.mainWindow = mainWindow
   }
@@ -272,3 +272,5 @@ export default class MenuBuilder {
     return templateDefault
   }
 }
+
+module.exports = MenuBuilder
