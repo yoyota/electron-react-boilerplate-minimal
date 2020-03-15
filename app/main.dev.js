@@ -4,6 +4,11 @@ const { app, BrowserWindow } = require("electron")
 const { autoUpdater } = require("electron-updater")
 const log = require("electron-log")
 const MenuBuilder = require("./menu")
+const packageJSON = require("../package")
+
+if (process.platform === "win32") {
+  app.setAppUserModelId(packageJSON.build.appId)
+}
 
 class AppUpdater {
   constructor() {

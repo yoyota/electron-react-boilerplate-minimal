@@ -16,7 +16,7 @@
   },
   "build": {
     "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "appId": "org.yoyota.electron-react-minimal",
     "files": [
       "dist/",
       "node_modules/",
@@ -26,8 +26,7 @@
       "package.json"
     ],
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 130,
           "y": 220
         },
